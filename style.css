@@ -1,0 +1,284 @@
+/* Web101 Project Justin-Marian */
+/* Display rights in center */
+.rights {
+  position: fixed;
+
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  margin-bottom: 2vh;
+
+  text-align: center;
+  color: rgb(255, 255, 255); 
+}
+/* end rights */
+/* --------------------------------------------------------------------------------- */
+/* White box setting dimensions & position */
+.introduceNewTask {
+  height: 45px;
+  padding: 0 50px;
+  position: relative;
+}
+/* Placeholder setting position */
+.introduceNewTask img {
+  top: 75%;
+  position: absolute;
+}
+/* Font-style for the "Add a new task" */
+.introduceNewTask input {
+  text-align: center;
+  outline: none;
+  /* line color is reseted to default color
+  when you introduce a task in placeholder */
+
+  height: 100%;
+  width: 100%;
+
+  font-size: 25px;
+
+  border-radius: 1.75rem;
+  border: 2px solid rgb(235, 115, 15);
+}
+/* When the input place is clicked is changing color */
+/* Fits in the placeholder & sets a gradiant */
+.introduceNewTask input:focus /*, .introduceNewTask input.all*/ {
+  background: transparent;
+  padding: 1rem 0 1rem 0;
+
+  background-clip: padding-box, border-box;
+  background-origin: border-box;
+
+  /* Same as before */
+  border: 2px solid transparent;
+  border-radius: 1.75rem;
+
+  background-image: linear-gradient(90deg, rgb(195, 170, 170), white),
+  linear-gradient(45deg, hsl(35, 90%, 50%), hsl(20, 85%, 50%));
+} 
+/* "Add a new task" is orange when is the input is not clicked */
+.introduceNewTask input::placeholder {
+  color: #F36100;
+}
+/* end introduceNewTask */
+/* --------------------------------------------------------------------------------- */
+/* List Item elementS All/In Progress/Finished */
+/* Settle them with space between each them */
+/* Display flex make them to be all inline */
+/* Align items  */
+.controllerTasks, li {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: space-between;
+}
+/* Create at the bottom a bold gray lane & other spaces elements */
+.controllerTasks {
+  padding: 15px 55px 15px 55px;
+  border-bottom: 5px solid rgb(185, 175, 175);
+}
+/* Style for the class clear-btn */
+/* Filled with gradiant color, transperancy, size font & margins */
+.controllerTasks .clear-btn {
+  border: none; /* black border */
+  opacity: 0.85;
+
+  color: #FFF;
+
+  font-size: 20px;
+  padding: 5px 15px;
+  border-radius: 5px;
+
+  background: linear-gradient(90deg, #Fb6b17 25%, #Fe9c2d 100%);
+}
+/*  end controllerTasks */
+/* --------------------------------------------------------------------------------- */
+/* Mark parts of the controllerTasks, filters: All / InProgress / Finished */
+.filters span {
+  margin: 0 10px 0 10px;
+  font-size: 20px;
+  color: #444444;
+  cursor: pointer;
+}
+/* Important: make space enough for filters to stay all in 1 lane */
+.filters span:first-child {
+  margin-left: 0px;
+}
+/* When a filter is clicked becomes orange */
+.filters span.all {
+  color: #Fb6b17;
+}
+/* end filters */
+/* --------------------------------------------------------------------------------- */
+/*  Setting margins for lists of tasks */
+.task-box {
+  margin-top: 25px;
+  margin-right: 5px;
+  padding: 0 20px 10px 25px;
+}
+/*  Makes lists tasks in a maxium height space of 300px */
+.task-box.overflow {
+  overflow-y: auto;
+  max-height: 300px;
+}
+/* Scrollbar thickness */
+.task-box::-webkit-scrollbar {
+  width: 10px;
+}
+/* thumb of the scrollbar */
+.task-box::-webkit-scrollbar-thumb {
+  background: #706f6f;
+  border-radius: 25px;
+}
+/* Scrollbar where scroller goes up & down */
+.task-box::-webkit-scrollbar-track {
+  background: rgb(180, 180, 180);
+  border-radius: 10px;
+}
+/* Setting propriets for each task to have: */
+/* Setteled margins, border & font style */
+.task-box .task {
+  list-style: none;
+  align-items: flex-start;
+
+  font-size: 18px;
+
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+
+  border-bottom: 2px solid rgb(245, 10, 10);
+}
+/* Last task doesn't have spaces between/red line at bottom */
+.task-box .task:last-child {
+  margin-bottom: 0;
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+/* Align each to start in the right side of check button  */
+.task-box .task label {
+  display: flex;
+  align-items: flex-start;
+}
+/* end task box */
+/* --------------------------------------------------------------------------------- */
+/* Interior when a task from list is checked becomes gray*/
+.task label input {
+  margin-top: 5px;
+  accent-color: #807d7a;
+}
+/* space between name task & check button */
+.task label p {
+  user-select: none; /* make user to stop selecting tasks - blue background color */
+  margin-left: 10px;
+  word-wrap: break-word;
+}
+/* Style & animation when the task is settled as done */
+/* Make more space between task & check button 5px */
+.task label p.checked {
+  content: ' ';
+  position: relative;
+  margin-left: 15px;
+
+  text-decoration: line-through;
+  text-decoration-style: solid;
+  text-decoration-thickness: 3px;
+  text-decoration-color: #444444;
+
+  animation-name: checking;
+  animation-duration: 0.20s;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes checking{
+  0%   { width : 0%; }
+  20%  { width : 20%; }
+  40%  { width : 30%; }
+  60%  { width : 45%; }
+  80%  { width : 65%; }
+  100% { width: 100%; }
+}
+/* end task */
+/* --------------------------------------------------------------------------------- */
+/* Settings position for settings to be on same position as the task */
+.settings {
+  position: relative;
+}
+/* Menu settings style, margins & position settled  */
+.settings .task-menu {
+  /* setting index has a greater stack order - puts him in front */
+  z-index: 1;
+  right: -5px;
+  bottom: -65px;
+  padding: 5px 0px;
+  position: absolute;
+
+  background: #FFF;
+  border-radius: 5px;
+  
+  /* not show each menu of settings for each task */
+  transform: scale(0); 
+  /* always to be on top right origin set */
+  transform-origin: top right;
+
+  box-shadow: 0px 0px 10px rgba(255, 0, 0, 0.75);
+  transition: transform 0.2s ease;
+}
+/* Hover effect for settings */
+.settings li:hover {
+  background: rgba(255, 0, 0, 0.75);
+}
+/* Space settings right */
+.settings li i {
+  padding-right: 10px;
+}
+/* end settings */
+/* --------------------------------------------------------------------------------- */
+/* Menu of settings comes in front when is clicked */
+.task-menu.show {
+  transform: scale(1);
+}
+/* Edit & Delete style */
+.task-menu li {
+  height: 25px;
+  font-size: 16px;
+  padding: 17px 15px;
+  cursor: pointer;
+  justify-content: flex-start;
+}
+/* end task menu*/
+/* --------------------------------------------------------------------------------- */
+/* Change aspect when width becomes 400px - MAXIMUM */
+@media only screen and (max-width: 400px) {
+  body {
+    padding: 0 10px;
+  }
+
+  .boxTodoList {
+    padding: 20px 0;
+  }
+
+  .filters span {
+    margin: 0 5px;
+  }
+
+  .introduceNewTask {
+    padding: 0 20px;
+  }
+
+  .controllerTasks {
+    padding: 15px 20px;
+  }
+
+  .task-box {
+    margin-top: 20px;
+    margin-right: 5px;
+    padding: 0 15px 10px 20px;
+  }
+
+  .task label input {
+    margin-top: 5px;
+  }
+
+}
+/* end media */
