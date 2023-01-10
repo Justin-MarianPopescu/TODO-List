@@ -22,4 +22,4 @@ In this README I will not go into detail about the structure of the HTML & CSS f
 
 ### Open Source Community :octocat:
 
-Anyone can contribute to the project, with one condition, to create a new branch and specify the changes made, bugs solved, new, original ideas and concepts. The best way would be to me is to create a Pull Request :octocat:.
+Anyone can contribute to the project, with one condition, to create a new branch and specify the changes made, bugs solved, new, original ideas and concepts. The best way would be to me is to create a Pull Request :smiley:.
