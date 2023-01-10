@@ -20,6 +20,6 @@ Design of the project tried to be *responsive*, as much as I could make it, on m
 
 In this README I will not go into detail about the structure of the HTML & CSS files. There are already comments that briefly explain these details on how the project was designed.
 
-### Open Source Community
+### Open Source Community :octocat:
 
 Anyone can contribute to the project, with one condition, to create a new branch and specify the changes made, bugs solved, new, original ideas and concepts. Anyone can contribute to the project, with one condition, to create a branch and specify the changes made, bugs solved, new, original ideas and concepts. Possibly the best way is to create a Pull Request.
